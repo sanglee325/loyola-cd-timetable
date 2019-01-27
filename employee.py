@@ -8,8 +8,8 @@ class Employee:
         self.avoid = 0
         self.priority = 0
         self.late = 0
-        self.week = [['-']*9 for i in range(5)]
-        self.weekend ='-'
+        self.week = [['-']*5 for i in range(9)]
+        self.weekend =['-', '-']
 
     def penalty(self):
         if self.avoid == 0:

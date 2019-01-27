@@ -2,7 +2,7 @@ import openpyxl
 import data as D
 import employee as E
 
-name = '2018-02_20171635_psl.xlsx'
+name = '2018-02_20171635_박상리.xlsx'
 emp = E.Employee()
 
 
@@ -16,3 +16,5 @@ D.count_p(emp, ws)
 
 print(emp.name)
 print(emp.student_num)
+print(emp.priority)
+print(emp.phone_num)

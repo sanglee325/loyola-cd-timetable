@@ -18,34 +18,30 @@ def read_timetable(new, wb, ws):
         #get week timetable
         for i in range(9):
                 for j in range(5):
-                        if ws.cell(row=26+i, column=5).value == None:
+                        info = ws.cell(row=26+i, column=5+j).value
+                        if info == None:
                                 new.week[i][j] = '-'
                         else:
-                                info = ws.cell(row=26+i, column=5+j).value
-                                print info
-                                tmp = info.split('(')
+                                tmp = list(info)
                                 new.week[i][j] = tmp[0]
         #get weekend timetable
         for j in range(2):
-                if ws.cell(row=38+j, column=5).value == None:
+                info = ws.cell(row=38+j, column=5).value
+                if info == None:
                         new.weekend[j] = '-'
                 else:   
-                        info = ws.cell(row=38+j, column=5).value
-                        tmp = info.split('(')
+                        tmp = list(info)
                         new.weekend[j] = tmp[0]
 
 
 def count_p(new, ws):
-        new.week = [['0']*9 for i in range(5)]
         #num of X
-        for i in range(5):
-                for j in range(9):
-                        tmp = new.week[i][j].split('(')
-                        if tmp[0] == 'X':
+        for i in range(9):
+                for j in range(5):
+                        if new.week[i][j] == 'X':
                                 new.X += 1
         for j in range(2):
-                tmp = new.week[j][0].split('(')
-                if tmp[0] == 'X':
+                if new.weekend[j] == 'X':
                         new.X += 1
 
         #late penalty
