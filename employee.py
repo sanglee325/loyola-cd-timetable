@@ -8,9 +8,11 @@ class Employee:
         self.avoid = 0
         self.priority = 0
         self.late = 0
+        self.week = [['-']*9 for i in range(5)]
+        self.weekend ='-'
 
     def penalty(self):
-        if self.avoid < 1:
+        if self.avoid == 0:
             self.priority -= 3
         if self.late > 0:
             self.priority -= self.late*3

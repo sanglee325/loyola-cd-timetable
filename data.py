@@ -1,10 +1,10 @@
 import openpyxl
 import employee as E
 
-# 현재 Active Sheet 얻기
+# Get current Active Sheet
 # ws = wb.active
 def open_sheet(filename, new, wb, ws):
-        #filename에서 데이터 split, 저장
+        #save data from filename
         tmp = filename.split('_')
         tt = tmp[2].split('.')
 
@@ -15,34 +15,62 @@ def open_sheet(filename, new, wb, ws):
 
 
 def read_timetable(new, wb, ws):
-        #주중 시간표 읽어오기
-        for i in range(5):
-                for j in range(9):
-                        new.week[i][j] = ws.cell(row=26+j, column=5+i).value
-        #주말 읽어오기
+        #get week timetable
+        for i in range(9):
+                for j in range(5):
+                        if ws.cell(row=26+i, column=5).value == None:
+                                new.week[i][j] = '-'
+                        else:
+                                info = ws.cell(row=26+i, column=5+j).value
+                                print info
+                                tmp = info.split('(')
+                                new.week[i][j] = tmp[0]
+        #get weekend timetable
         for j in range(2):
-                new.weekend[0][j] = ws.cell(row=38+i, column=5).value
+                if ws.cell(row=38+j, column=5).value == None:
+                        new.weekend[j] = '-'
+                else:   
+                        info = ws.cell(row=38+j, column=5).value
+                        tmp = info.split('(')
+                        new.weekend[j] = tmp[0]
 
 
 def count_p(new, ws):
-        #x의 갯수
+        new.week = [['0']*9 for i in range(5)]
+        #num of X
         for i in range(5):
                 for j in range(9):
                         tmp = new.week[i][j].split('(')
                         if tmp[0] == 'X':
                                 new.X += 1
         for j in range(2):
-                tmp = new.week[0][j].split('(')
+                tmp = new.week[j][0].split('(')
                 if tmp[0] == 'X':
                         new.X += 1
 
-        #지각 페널티
+        #late penalty
         late = ws['I39'].value
         new.late = int(late)
 
-        #기피 근무시간대 체크 여부
+        #avoided time
         for i in range(5):
-                tmp = new.week[0][i]
+                tmp = new.week[0][i].split('(')
+                if tmp[0] == 'O':
+                        new.avoid = 1
+                        break
+
+        tmp = new.week[1][0].split('(')
+        if tmp[0] == 'O':
+                new.avoid = 1
+
+        for i in range(3):
+                tmp = new.week[6+i][4].split('(')
+                if tmp[0] == 'O':
+                        new.avoid = 1
+                        break
+        new.penalty()
+
+        
 
 
 
