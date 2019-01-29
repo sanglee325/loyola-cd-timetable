@@ -3,7 +3,7 @@ import employee as E
 
 # Get current Active Sheet
 # ws = wb.active
-def open_sheet(filename, new, wb, ws):
+def get_info(filename, new, wb, ws):
         #save data from filename
         tmp = filename.split('_')
         tt = tmp[2].split('.')

@@ -10,7 +10,7 @@ emp = E.Employee()
 wb = openpyxl.load_workbook(name)
 ws = wb.get_sheet_by_name("Sheet1")
 
-D.open_sheet(name, emp, wb, ws)
+D.get_info(name, emp, wb, ws)
 D.read_timetable(emp, wb, ws)
 D.count_p(emp, ws)
 
