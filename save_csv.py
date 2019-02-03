@@ -13,9 +13,12 @@ print(xlsx_file)
 
 #student = [E.Employee()]*len(xlsx_file)
 
-tmp_data = open('tmp_data.csv', 'w', encoding='utf-8', newline='')
+tmp_data = open('tmp_data.csv', 'w', encoding='euc-kr', newline='')
 wr = csv.writer(tmp_data)
 tmp_student = E.Employee()
+
+total = [len(xlsx_file)]
+wr.writerow(total)
 
 for i in range(len(xlsx_file)):
     employee_data = []
@@ -29,6 +32,7 @@ for i in range(len(xlsx_file)):
     #D.count_p(tmp_student[i], app_ws)
 
     employee_data.append(tmp_student.name)
+    employee_data.append(tmp_student.major)
     employee_data.append(tmp_student.student_num)
     employee_data.append(tmp_student.phone_num)
     employee_data.append(tmp_student.late)
