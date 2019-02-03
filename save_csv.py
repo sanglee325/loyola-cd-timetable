@@ -7,7 +7,7 @@ import csv
 
 xlsx_file = []
 
-for filename in glob.glob('*.xlsx'):
+for filename in glob.glob('신청서/*.xlsx'):
     xlsx_file.append(filename)
 print(xlsx_file)
 

@@ -6,10 +6,10 @@ import employee as E
 def get_info(filename, new, wb, ws):
         #save data from filename
         tmp = filename.split('_')
-        tt = tmp[2].split('.')
+        tmp2 = tmp[2].split('.')
 
         new.student_num = tmp[1]
-        new.name = tt[0]
+        new.name = tmp2[0]
         new.major = ws['E22'].value
         new.phone_num = ws['G22'].value
         new.late = ws['I39'].value
