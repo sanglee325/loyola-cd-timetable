@@ -34,54 +34,34 @@ def read_timetable(new, wb, ws):
                         tmp = list(info)
                         new.weekend[j] = tmp[0]
 
-
-def count_p(new, ws):
-        #num of X
-        X = 0
+def divided_week(week, student):
+        tmp1 = week.split('[')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(']')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(',')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split("'")
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(" ")
+        tmp2 = "".join(tmp1)
+        k = 0
         for i in range(9):
                 for j in range(5):
-                        if new.week[i][j] == 'X':
-                                #new.X += 1
-                                X += 1
-        for j in range(2):
-                if new.weekend[j] == 'X':
-                        #new.X += 1
-                        X += 1
+                        student[i][j] = tmp2[k]
+                        k += 1
 
-        #late penalty
-        late = ws['I39'].value
-        #new.late = int(late)
-        late = int(late)
+def divided_weekend(weekend, student):
+        tmp1 = weekend.split('[')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(']')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(',')
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split("'")
+        tmp2 = "".join(tmp1)
+        tmp1 = tmp2.split(" ")
+        tmp2 = "".join(tmp1)
 
-        #avoided time
-        avoid = 0
-        for i in range(5):
-                tmp = new.week[0][i].split('(')
-                if tmp[0] == 'O':
-                        #new.avoid = 1
-                        avoid = 1
-                        break
-
-        tmp = new.week[1][0].split('(')
-        if tmp[0] == 'O':
-                #new.avoid = 1
-                avoid = 1
-
-        for i in range(3):
-                tmp = new.week[6+i][4].split('(')
-                if tmp[0] == 'O':
-                        #new.avoid = 1
-                        avoid = 1
-        #new.penalty()
-        if avoid == 0:
-            new.penalty += 3
-        if late > 0:
-            new.penalty += late*3
-        new.penalty -= X
-
-        
-
-
-
-
-
+        student[0] = tmp2[0]
+        student[1] = tmp2[1]

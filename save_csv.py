@@ -11,7 +11,6 @@ for filename in glob.glob('*.xlsx'):
     xlsx_file.append(filename)
 print(xlsx_file)
 
-#student = [E.Employee()]*len(xlsx_file)
 
 tmp_data = open('tmp_data.csv', 'w', encoding='euc-kr', newline='')
 wr = csv.writer(tmp_data)
@@ -29,7 +28,6 @@ for i in range(len(xlsx_file)):
     #load data to class student
     D.get_info(name, tmp_student, app_wb, app_ws)
     D.read_timetable(tmp_student, app_wb, app_ws)
-    #D.count_p(tmp_student[i], app_ws)
 
     employee_data.append(tmp_student.name)
     employee_data.append(tmp_student.major)

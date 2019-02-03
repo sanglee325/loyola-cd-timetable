@@ -9,6 +9,9 @@ class Employee:
         self.week = [['-']*5 for i in range(9)]
         self.weekend =['-', '-']
 
+    def __lt__(self, other):
+        return self.penalty < other.penalty
+
     def count_p(self):
         #num of X
         X = 0
@@ -24,24 +27,20 @@ class Employee:
 
         #avoided time
         avoid = 0
+        #mtwtf 0
         for i in range(5):
-                tmp = self.week[0][i]
-                if tmp[0] == 'O':
-                        #self.avoid = 1
+                if self.week[0][i] == 'O':
                         avoid = 1
                         break
-
-
-        if tmp[0] == 'O':
-                #new.avoid = 1
+        #mon 1
+        if self.week[1][0] == 'O':
                 avoid = 1
-
+        #fri 678
         for i in range(3):
                 tmp = self.week[6+i][4]
                 if tmp[0] == 'O':
-                        #new.avoid = 1
                         avoid = 1
-        #new.penalty()
+
         if avoid == 0:
             self.penalty += 3
         if self.late > 0:
