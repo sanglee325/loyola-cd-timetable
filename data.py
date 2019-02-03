@@ -12,6 +12,7 @@ def get_info(filename, new, wb, ws):
         new.name = tt[0]
         new.major = ws['E22'].value
         new.phone_num = ws['G22'].value
+        new.late = ws['I39'].value
 
 
 def read_timetable(new, wb, ws):
@@ -36,35 +37,47 @@ def read_timetable(new, wb, ws):
 
 def count_p(new, ws):
         #num of X
+        X = 0
         for i in range(9):
                 for j in range(5):
                         if new.week[i][j] == 'X':
-                                new.X += 1
+                                #new.X += 1
+                                X += 1
         for j in range(2):
                 if new.weekend[j] == 'X':
-                        new.X += 1
+                        #new.X += 1
+                        X += 1
 
         #late penalty
         late = ws['I39'].value
-        new.late = int(late)
+        #new.late = int(late)
+        late = int(late)
 
         #avoided time
+        avoid = 0
         for i in range(5):
                 tmp = new.week[0][i].split('(')
                 if tmp[0] == 'O':
-                        new.avoid = 1
+                        #new.avoid = 1
+                        avoid = 1
                         break
 
         tmp = new.week[1][0].split('(')
         if tmp[0] == 'O':
-                new.avoid = 1
+                #new.avoid = 1
+                avoid = 1
 
         for i in range(3):
                 tmp = new.week[6+i][4].split('(')
                 if tmp[0] == 'O':
-                        new.avoid = 1
-                        break
-        new.penalty()
+                        #new.avoid = 1
+                        avoid = 1
+        #new.penalty()
+        if avoid == 0:
+            new.penalty += 3
+        if late > 0:
+            new.penalty += late*3
+        new.penalty -= X
 
         
 
