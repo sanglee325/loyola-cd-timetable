@@ -1,5 +1,5 @@
-import read_csv as rcsv
-import timetable as tt
+from loyolaCD import read_csv as rcsv
+from loyolaCD import timetable as tt
 from openpyxl import load_workbook
 
 schedule = tt.timetable()
@@ -29,6 +29,11 @@ for i in range(9):
                 ws1.cell(row=3+line+k, column=3+j).value = schedule.cell[i][j].name[k]
             else:
                 ws1.cell(row=3+line+k, column=3+j).value = " "
+
+for i in range(len(rcsv.student)):
+    rcsv.student[i].count_apptime()
+    ws1.cell(row=5+i, column=10).value = rcsv.student[i].name
+    ws1.cell(row=5+i, column=11).value = rcsv.student[i].applied
 
 
 wb.save('result.xlsx')
