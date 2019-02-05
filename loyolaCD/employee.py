@@ -1,4 +1,5 @@
-﻿class Employee:
+﻿# -*- coding: utf-8 -*-
+class Employee:
         def __init__(self):
                 self.student_num = 0
                 self.late = 0

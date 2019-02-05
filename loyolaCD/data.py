@@ -1,4 +1,5 @@
-﻿import openpyxl
+﻿# -*- coding: utf-8 -*-
+import openpyxl
 from loyolaCD import employee as E
 
 # Get current Active Sheet

@@ -1,4 +1,5 @@
-﻿from loyolaCD import read_csv as rcsv
+﻿# -*- coding: utf-8 -*-
+from loyolaCD import read_csv as rcsv
 from loyolaCD import timetable as tt
 from openpyxl import load_workbook
 
@@ -6,7 +7,7 @@ schedule = tt.timetable()
 schedule.set_cell()
 schedule.set_max()
 
-#load O info from the data
+#load Os info from the data
 for i in range(9):
     for j in range(5):
         for k in range(len(rcsv.student)):
@@ -14,7 +15,7 @@ for i in range(9):
                 schedule.cell[i][j].name.append(rcsv.student[k].name)
                 schedule.cell[i][j].current = schedule.cell[i][j].current+1
 
-
+#in 근무시간표 sheet schedule and applied time are set
 wb = load_workbook('result.xlsx')
 ws1 = wb.get_sheet_by_name("근무시간표")
 ws1.title = "근무시간표"
@@ -35,8 +36,7 @@ for i in range(len(rcsv.student)):
     ws1.cell(row=5+i, column=10).value = rcsv.student[i].name
     ws1.cell(row=5+i, column=11).value = rcsv.student[i].applied
 
-#in sheet1 schedule and applied time are set
-
+#in 신청자 sheet people who applied are written
 ws1 = wb.get_sheet_by_name("신청자")
 ws1.title = '신청자'
 
@@ -49,7 +49,15 @@ for j in range(5):
 for i in range(9):
     for j in range(5):
         ws1.cell(row=2+i, column=2+j).value = "/".join(schedule.cell[i][j].name)
-        
+
+#in 근무자정보 sheet each infos are written
+ws1 = wb.get_sheet_by_name("근무자정보")
+
+for k in range(len(rcsv.student)):
+    ws1.cell(row=1+k, column=1).value = rcsv.student[k].name
+    ws1.cell(row=1+k, column=2).value = rcsv.student[k].student_num
+    ws1.cell(row=1+k, column=3).value = rcsv.student[k].major
+    ws1.cell(row=1+k, column=4).value = rcsv.student[k].phone_num
 
 wb.save('result.xlsx')
 

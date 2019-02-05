@@ -1,4 +1,5 @@
-﻿from loyolaCD import save_csv
+﻿# -*- coding: utf-8 -*-
+from loyolaCD import save_csv
 import csv
 from loyolaCD import data as D
 from loyolaCD import employee as E
