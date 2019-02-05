@@ -1,6 +1,6 @@
-import glob
-import data as D
-import employee as E
+﻿import glob
+from loyolaCD import data as D
+from loyolaCD import employee as E
 from openpyxl import load_workbook
 from openpyxl import Workbook
 import csv
@@ -12,7 +12,7 @@ for filename in glob.glob('신청서/*.xlsx'):
 print(xlsx_file)
 
 
-tmp_data = open('신청서/tmp_data.csv', 'w', encoding='euc-kr', newline='')
+tmp_data = open('loyolaCD/tmp_data.csv', 'w', encoding='euc-kr', newline='')
 wr = csv.writer(tmp_data)
 tmp_student = E.Employee()
 

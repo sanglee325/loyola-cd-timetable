@@ -1,4 +1,4 @@
-import employee as E
+﻿from loyolaCD import employee as E
 
 class times:
     def __init__(self):
@@ -37,7 +37,7 @@ class timetable:
                     self.cell[i][j].time1678()
 
 def day_of_week(num):
-    print({0:"MON", 1:"TUE", 2:"WEN", 3:"THU", 4:"FRI"}.get(num, "default"))
+   return ({0:"월", 1:"화", 2:"수", 3:"목", 4:"금"}.get(num, "default"))
 
 def time_of_day(num):
-    print({0:"0교시", 1:"1교시", 2:"2교시", 3:"3교시", 4:"4교시", 5:"5교시", 6:"6교시", 7:"앞야", 8:"뒷야"}.get(num, "default"))
+    return ({0:"0교시", 1:"1교시", 2:"2교시", 3:"3교시", 4:"4교시", 5:"5교시", 6:"6교시", 7:"앞야", 8:"뒷야"}.get(num, "default"))

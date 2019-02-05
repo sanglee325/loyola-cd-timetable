@@ -1,5 +1,5 @@
-import openpyxl
-import employee as E
+﻿import openpyxl
+from loyolaCD import employee as E
 
 # Get current Active Sheet
 # ws = wb.active

@@ -1,13 +1,13 @@
-import save_csv
+﻿from loyolaCD import save_csv
 import csv
-import data as D
-import employee as E
+from loyolaCD import data as D
+from loyolaCD import employee as E
 
 lines = 0
 i = 0
 
 student = []
-with open('tmp_data.csv', 'r') as f:
+with open('loyolaCD/tmp_data.csv', 'r') as f:
     reader_csv = csv.reader(f, delimiter=',')
     for row in reader_csv:
         if i == 0:
