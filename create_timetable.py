@@ -2,7 +2,6 @@
 from loyolaCD import read_csv as rcsv
 from loyolaCD import timetable as tt
 from openpyxl import load_workbook
-import random
 
 schedule = tt.timetable()
 schedule.set_cell()
