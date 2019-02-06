@@ -9,7 +9,7 @@ class Employee:
                 self.phone_num = 'PhoneNum'
                 self.week = [['-']*5 for i in range(9)]
                 self.weekend = ['-', '-']
-                self.applied = 0
+                self.applied = 0 #total time apllied
 
         def __lt__(self, other):
                 return self.penalty < other.penalty
@@ -53,6 +53,7 @@ class Employee:
                 count0 = 0
                 count123456 = 0
                 count78 = 0
+                count_sat = 0
 
                 for j in range(5):
                         if self.week[0][j] == 'O':
@@ -65,5 +66,8 @@ class Employee:
                         for j in range(5):
                                 if self.week[i+7][j] == 'O':
                                         count78 += 2
-
-                self.applied = count0 + count123456 + count78
+                for j in range(2):
+                        if self.weekend[j] == 'O':
+                                count_sat += 4
+                                
+                self.applied = count0 + count123456 + count78 + count_sat

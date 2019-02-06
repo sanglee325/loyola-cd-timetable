@@ -16,9 +16,13 @@ class times:
     def time2345(self):
         self.max = 4
 
+    def time_Sat(self):
+        self.max = 3
+
 class timetable:
     def __init__(self):
         self.cell = []
+        self.sat = []
 
     def set_cell(self):
         for i in range(9):
@@ -26,6 +30,8 @@ class timetable:
             for j in range(5):
                 self.cell[i].append(times())
 
+        for j in range(2):
+            self.sat.append(times())
 
     def set_max(self):
         for i in range(9):
@@ -36,6 +42,9 @@ class timetable:
                     self.cell[i][j].time2345()
                 else:
                     self.cell[i][j].time1678()
+        
+        for j in range(2):
+            self.sat[j].time_Sat()
 
 def day_of_week(num):
    return ({0:"월", 1:"화", 2:"수", 3:"목", 4:"금", 5:"토"}.get(num, "default"))
