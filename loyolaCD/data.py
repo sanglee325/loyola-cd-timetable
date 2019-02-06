@@ -2,8 +2,6 @@
 import openpyxl
 from loyolaCD import employee as E
 
-# Get current Active Sheet
-# ws = wb.active
 def get_info(filename, new, wb, ws):
         #save data from filename
         tmp = filename.split('_')

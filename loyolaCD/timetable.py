@@ -6,6 +6,8 @@ class times:
         self.max = 0
         self.current = 0
         self.name = []
+        self.Xname = []
+        self.blank = []
     
     def time0(self):
         self.max = 2

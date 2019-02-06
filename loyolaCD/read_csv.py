@@ -27,6 +27,8 @@ with open('loyolaCD/tmp_data.csv', 'r') as f:
             i = i + 1
 student.sort()
 
+'''
 for i in range(lines):
     print(student[i].student_num)
     print(student[i].penalty)
+'''
