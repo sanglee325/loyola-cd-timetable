@@ -4,7 +4,7 @@
 1. Automatically makes timetable during the semester
 2. Uses openpyxl (must be installed before used)
     ~~~bash
-    C:\> pip install open
+    C:\> pip install openpyxl
     ~~~
 3. Furthermore, to use program in any computer make it into .exe
     ~~~bash
