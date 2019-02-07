@@ -1,11 +1,27 @@
 # loyolaCDtimetable
-Loyola library CD student employees' timetable setting program
+* Loyola library CD student employees' timetable setting program
 
-## timetable maker
 1. Automatically makes timetable during the semester
-2. Uses openpyxl, openpyxl must be installed before used
+2. Uses openpyxl (must be installed before used)
+    ~~~bash
+    C:\> pip install open
+    ~~~
+3. Furthermore, to use program in any computer make it into .exe
+    ~~~bash
+    C:\> pip install pyinstaller
+    C:\> cd [directory]
+    C:\> pyinstaller -F -n loyolaCDtime.exe create_timetable.py
+    ~~~
+    __loyolaCDtime.exe__ will contain libraries imported
 
-## HOW TO USE
-1. [½ÅÃ»¼­] Æú´õ¿¡ ¹ŞÀº ¿¢¼¿ ÆÄÀÏµéÀ» Áı¾î ³Ö´Â´Ù.
-2. result.xlsx¸¦ Àß Á¤¸®ÇÑ´Ù.
-3. create_timetable.py¸¦ ½ÇÇàÇÑ´Ù.
+### ì‚¬ìš©ë²• ë° ì£¼ì˜ì‚¬í•­ [KOR]
+1. __ì‹ ì²­ì„œ__ í´ë”ì— ë°›ì€ 20XX-0X_í•™ë²ˆ_ì´ë¦„.xlsx ì—‘ì…€ íŒŒì¼ë“¤ì„ ë„£ëŠ”ë‹¤.
+2. __loyolaCDtime.exe__ ì‹¤í–‰ ì „ í˜„ì¬ ìœ„ì¹˜ì—ì„œ __loyolaCD__ ì™€ __ì‹ ì²­ì„œ__ í´ë”, ê·¸ë¦¬ê³  __result.xlsx__ íŒŒì¼ì´ ìˆëŠ”ì§€ë¥¼ í™•ì¸í•œë‹¤. (ì²¨ë¶€ëœ zipíŒŒì¼ì—ëŠ” í•„ìš”í•œ íŒŒì¼ë“¤ì´ ëª¨ë‘ ìˆë‹¤.)
+3. __loyolaCDtime.exe__ ë¥¼ ì‹¤í–‰í•œë‹¤
+    
+
+### HOW TO USE [ENG]
+1. Put 20XX-0X_20XXXX_[NAME].xlsx files in the __ì‹ ì²­ì„œ__ directory.
+2. Before executing the __loyolaCDtime.exe__ check if __loyolaCD__, __ì‹ ì²­ì„œ__ directory, and __result.xlsx__ exist. (Attachted zip file contains all above.)
+3. Execute __loyolaCDtime.exe__
+
