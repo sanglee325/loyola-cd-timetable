@@ -47,6 +47,8 @@ class Employee:
                         self.penalty += 3
                 if self.late > 0:
                         self.penalty += self.late*3
+                if X == 0:
+                        self.penalty -= 10000
                 self.penalty -= X
 
         def count_apptime(self):
