@@ -25,3 +25,5 @@
 2. Before executing the __loyolaCDtime.exe__ check if __loyolaCD__, __신청서__ directory, and __result.xlsx__ exist. (Attachted zip file contains all above.)
 3. Execute __loyolaCDtime.exe__
 
+#### BUG FIXED
+- [19.02.18] X표를 치지 않는 편법에 가장 아래순위 부여
