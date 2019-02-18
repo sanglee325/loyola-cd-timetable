@@ -1,6 +1,7 @@
 __pycache__
 .vscode
 loyolaCD/__pycache__
+loyolaCD/tmp_data.csv
 loyolaCDtime.docx
 result.xlsx
 신청서
