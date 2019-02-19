@@ -1,4 +1,4 @@
-# loyolaCDtimetable
+# loyola-cd-timetable
 * Loyola library CD student employees' timetable setting program
 
 1. Automatically makes timetable during the semester
