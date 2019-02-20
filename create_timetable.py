@@ -21,10 +21,10 @@ for i in range(9):
 
 for j in range(2):
     for k in range(len(rcsv.student)):
-        if rcsv.student[k].week[i][j] == 'O':
+        if rcsv.student[k].weekend[j] == 'O':
             schedule.sat[j].name.append(rcsv.student[k].name)
             schedule.sat[j].current = schedule.sat[j].current+1
-        elif rcsv.student[k].week[i][j] == 'X':
+        elif rcsv.student[k].weekend[j] == 'X':
             schedule.sat[j].Xname.append(rcsv.student[k].name)
         else:
             schedule.sat[j].blank.append(rcsv.student[k].name)
