@@ -23,7 +23,17 @@ def read_timetable(new, wb, ws):
                                 new.week[i][j] = '-'
                         else:
                                 tmp = list(info)
+                                if tmp[0] == 'O' or tmp[0] == 'o':
+                                        new.week[i][j] = 'O'
+                                elif tmp[0] == 'X' or tmp[0] == 'x':
+                                        new.week[i][j] = 'X'
+                        '''
+                        if info == None:
+                                new.week[i][j] = '-'
+                        else:
+                                tmp = list(info)
                                 new.week[i][j] = tmp[0]
+                        '''
         #get weekend timetable
         for j in range(2):
                 info = ws.cell(row=38+j, column=5).value
@@ -31,7 +41,10 @@ def read_timetable(new, wb, ws):
                         new.weekend[j] = '-'
                 else:   
                         tmp = list(info)
-                        new.weekend[j] = tmp[0]
+                        if tmp[0] == 'O' or tmp[0] == 'o':
+                                new.weekend[j] = 'O'
+                        elif tmp[0] == 'X' or tmp[0] == 'x':
+                                new.weekend[j] = 'X'
 
 def divided_week(week, student):
         tmp1 = week.split('[')
